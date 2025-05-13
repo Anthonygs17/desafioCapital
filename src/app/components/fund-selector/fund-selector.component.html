@@ -1,0 +1,8 @@
+<div style="margin-bottom: 1rem;">
+  <label for="fondo-select">Selecciona un Fondo:</label>
+  <select  id="fondo-select" [value]="selectedFondoId" (change)="onChange($event)">
+    <option *ngFor="let fondo of fondos" [value]="fondo.id">
+      {{ fondo.name }}
+    </option>
+  </select>
+</div>

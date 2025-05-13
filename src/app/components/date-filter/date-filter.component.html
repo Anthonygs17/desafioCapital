@@ -1,0 +1,10 @@
+<div class="date-filter">
+  <label for="from-date">Desde:</label>
+  <input id="from-date" type="date" [(ngModel)]="fromDate" />
+
+  <label for="to-date">Hasta:</label>
+  <input id="to-date" type="date" [(ngModel)]="toDate" />
+
+  <button (click)="applyDateFilter()">Aplicar</button>
+  <button (click)="resetDateFilter()">Resetear</button>
+</div>

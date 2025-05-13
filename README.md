@@ -1,59 +1,55 @@
-# FintualDashboard
+# Desafío Técnico - Fondos de Inversión
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+Este proyecto corresponde a un desafío técnico que consiste en consumir la API pública de Fintual para visualizar la variación histórica de fondos de inversión. La aplicación permite filtrar la información por tipo de fondo y rango de fechas. 
+El desarrollo fue realizado completamente con **Angular**, utilizando herramientas como `HttpClient` para consumo de API y `ApexCharts` para la visualización de datos.
 
-## Development server
+## 🧩 Parte 1: Uso de API
 
-To start a local development server, run:
+### Objetivo
+Mostrar en una interfaz gráfica la variación mensual histórica de cada uno de los 4 fondos disponibles en la [API pública de Fintual](https://fintualist.com/chile/tecnologia/el-api-de-fintual/).
 
-```bash
-ng serve
-```
+### Endpoints utilizados
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Los datos de fondos fueron obtenidos desde la API pública de Fintual, utilizando los siguientes endpoints principales:
 
-## Code scaffolding
+- `https://fintual.cl/api/real_assets/{real_asset_id}/days`  
+  Para obtener la información histórica de cada fondo.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- `https://fintual.cl/api/real_assets/{id}`  
+  Para obtener los nombres de los fondos de inversion.
 
-```bash
-ng generate component component-name
-```
+Más detalles sobre esta API están disponibles en la [documentación oficial](https://fintual.cl/api-docs).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+## 📂 Parte 2: Consultas SQL
 
-## Building
+### Tabla `user_data`
 
-To build the project run:
+| Columna    | Tipo     | Descripción                     |
+|------------|----------|---------------------------------|
+| user_id    | INTEGER  | Identificador único del usuario |
+| name       | TEXT     | Nombre del usuario              |
+| last_name  | TEXT     | Apellido del usuario            |
 
-```bash
-ng build
-```
+### Tabla `user_movements`
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+| Columna        | Tipo      | Descripción                                       |
+|----------------|-----------|---------------------------------------------------|
+| user_id        | INTEGER   | Identificador del usuario                         |
+| movement_type  | TEXT      | Tipo de movimiento: `subscription` o `withdrawal` |
+| amount         | DECIMAL   | Monto del movimiento en CLP                       |
+| date           | DATE      | Fecha del movimiento                              |
 
-## Running unit tests
+En el archivo [`queries.sql`](./queries.sql) se encuentran tres consultas que responden a los siguientes requerimientos:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+1. Total de aportes y retiros realizados en diciembre de 2021
+2. Cantidad y monto promedio de aportes y rescates por fecha
+3. Obtener el usuario con el mayor monto total de aportes
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 📎 Notas adicionales
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+* El proyecto fue desarrollado completamente en Angular como SPA.
+* El diseño y arquitectura buscan facilitar la mantenibilidad y escalabilidad.
+* Se priorizó la claridad del código y la experiencia de usuario.
