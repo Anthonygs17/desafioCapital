@@ -3,6 +3,8 @@
 Este proyecto corresponde a un desafío técnico que consiste en consumir la API pública de Fintual para visualizar la variación histórica de fondos de inversión. La aplicación permite filtrar la información por tipo de fondo y rango de fechas. 
 El desarrollo fue realizado completamente con **Angular**, utilizando herramientas como `HttpClient` para consumo de API y `ApexCharts` para la visualización de datos.
 
+👉 Puedes ver la aplicación funcionando [aquí](https://anthonygs17.github.io/desafioCapital/)
+
 ## 🧩 Parte 1: Uso de API
 
 ### Objetivo
