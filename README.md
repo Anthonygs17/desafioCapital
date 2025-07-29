@@ -45,7 +45,7 @@ Más detalles sobre esta API están disponibles en la [documentación oficial](h
 En el archivo [`queries.sql`](./queries.sql) se encuentran tres consultas que responden a los siguientes requerimientos:
 
 1. Total de aportes y retiros realizados en diciembre de 2021
-2. Cantidad y monto promedio de aportes y rescates por fecha
+2. Cantidad y monto promedio de aportes y retiros por fecha
 3. Obtener el usuario con el mayor monto total de aportes
 
 ---
